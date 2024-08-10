@@ -26,4 +26,5 @@ public class BlogServiceimpl implements BlogService {
 		return seq;
 	}
 
+	
 }
