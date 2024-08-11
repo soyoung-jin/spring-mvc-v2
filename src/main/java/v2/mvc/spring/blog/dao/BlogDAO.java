@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import v2.mvc.spring.blog.dto.BlogEditRequestDTO;
+
 @Repository
 public class BlogDAO {
 	
@@ -20,6 +22,15 @@ public class BlogDAO {
 		return -1;
 		
 	}
+
+	public Map<String, Object> selectOne(int blogContSeq) {
+		
+		return this.sqlSessionTemplate.selectOne("TB_BLG_CONT.selectOne", blogContSeq);
+	}
 	
+	public int update(BlogEditRequestDTO blogEditRequestDTO) {
+		
+		return this.sqlSessionTemplate.update("TB_BLG_CONT.update", blogEditRequestDTO);
+	}
 
 }

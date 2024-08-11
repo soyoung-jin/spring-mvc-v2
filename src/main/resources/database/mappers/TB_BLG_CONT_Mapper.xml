@@ -17,9 +17,41 @@
   			(#{blg_cont_seq}, #{title}, #{content_body})
 
   		]]>
-  	
-  	
   	</insert>
+  	
+  	<select id="selectOne" parameterType="java.lang.Integer" resultType="hashMap">
+ 	<![CDATA[
+		 SELECT
+			CONT_NUM 
+			,TITLE
+			,TO_CHAR(CONT_BDY) AS CONT_BDY
+			,INSERT_DT
+		FROM
+			TB_BLG_CONT
+		WHERE
+		 	CONT_NUM = #{blg_cont_seq}
+ 	
+ 	]]>
+ 	
+ 	</select>
+ 	 	
+ 	
+ 	<update id="update" parameterType="BlogEditRequestDTO">
+ 	
+ 	<![CDATA[
+		 UPDATE
+		 	TB_BLG_CONT
+		 SET
+			TITLE = #{title}
+			,CONT_BDY = #{contBdy}
+	
+		WHERE
+		 	CONT_NUM = #{blogContSeq}
+ 	
+ 	]]>
+ 	
+ 	</update>
+  	
   	
   </mapper>
   
