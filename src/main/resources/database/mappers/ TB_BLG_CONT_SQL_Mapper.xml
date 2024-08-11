@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  <mapper namespace ="v2.mvc.spring.blog.mapper.BlogMapper">
+  	<delete id="delete" parameterType="java.lang.Integer">
+  			
+ 	<![CDATA[
+		 DELETE FROM
+		 	TB_BLG_CONT
+		 WHERE
+		 	CONT_NUM = #{blog_Cont_Seq}
+		 	
+ 	
+ 	]]> 
+  	
+  	</delete>
+  	
+  	<resultMap type="v2.mvc.spring.blog.dto.BlogListResponseDTO" id="selectListResultMap">
+  		<result column="CONT_NUM" property="blgContSeq" jdbcType="INTEGER" javaType="int"></result>
+  		<result column="TITLE" property="title" jdbcType="NVARCHAR2" javaType="String"></result>
+  		<result column="CONT_BDY" property="contBdy" jdbcType="NCLOB" javaType="String"></result>
+  		<result column="INSERT_DT" property="insertDt" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"></result>
+  	</resultMap>
+  	
+  	<select id="selectList" parameterType="v2.mvc.spring.blog.dto.BlogListRequestDTO" resultMap="selectListResultMap">
+  		<![CDATA[
+		 SELECT
+			CONT_NUM 
+			,TITLE
+			,TO_CHAR(CONT_BDY) AS CONT_BDY
+			,INSERT_DT
+		FROM
+			TB_BLG_CONT
+		WHERE
+		 	1 = 1
+ 		]]>
+ 		<if test="search != null">
+ 			AND(
+ 				TITLE LIKE '%' || #{search} || '%'
+ 			OR
+ 				CONT_BDY LIKE '%' || #{search} || '%'
+ 			)
+ 		
+ 		</if>
+
+  	</select>
+
+  	
+  </mapper>
+  

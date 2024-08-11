@@ -19,5 +19,13 @@
 	<hr />
 	<p>
 		입력일: <fmt:formatDate value="${blogCont.INSERT_DT}" pattern="yyyy.MM.dd HH:mm:ss"/></p>
+		
+	<div>
+		<form method="post" action="/delete">
+			<input type="hidden" name="blogContSeq" value="${blogCont.CONT_NUM}"/>
+			<input type="submit" name="delete_button" value="삭제"/>
+		</form>
+	
+	</div>
 </body>
 </html>

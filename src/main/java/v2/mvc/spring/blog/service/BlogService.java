@@ -11,4 +11,6 @@ public interface BlogService {
 
 	boolean edit(BlogEditRequestDTO blogEditRequestDTO);
 
+	boolean delete(int blogContSeq);
+
 }

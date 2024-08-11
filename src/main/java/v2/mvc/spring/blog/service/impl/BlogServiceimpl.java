@@ -1,5 +1,6 @@
 package v2.mvc.spring.blog.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +8,22 @@ import org.springframework.stereotype.Service;
 
 import v2.mvc.spring.blog.dao.BlogDAO;
 import v2.mvc.spring.blog.dto.BlogEditRequestDTO;
+import v2.mvc.spring.blog.dto.BlogListRequestDTO;
+import v2.mvc.spring.blog.dto.BlogListResponseDTO;
+import v2.mvc.spring.blog.mapper.BlogMapper;
 import v2.mvc.spring.blog.service.BlogService;
 
 @Service
 public class BlogServiceimpl implements BlogService {
 	
 	private BlogDAO blogDAO;
+	private BlogMapper blogMapper;
+	
+	@Autowired
+	public BlogServiceimpl(BlogDAO blogDAO, BlogMapper blogMapper) {
+		this.blogDAO =blogDAO;
+		this.blogMapper = blogMapper;
+	}
 
 
 	@Autowired
@@ -41,6 +52,18 @@ public class BlogServiceimpl implements BlogService {
 		
 		return affectRowsCount> 0 ;
 	}
+	
+	@Override
+	public boolean delete(int blogContSeq) {
+		return this.blogMapper.delete(blogContSeq)> 0;
+	}
+	
+	public List<BlogListResponseDTO> list(BlogListRequestDTO blogListRequestDTO){
+		List<BlogListResponseDTO> result = this.blogMapper.selectList(blogListRequestDTO);
+		return result;
+	}
+	
+	
 
 	
 }
