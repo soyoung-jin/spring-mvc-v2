@@ -15,22 +15,20 @@ import v2.mvc.spring.blog.service.BlogService;
 
 @Service
 public class BlogServiceimpl implements BlogService {
-	
+
 	private BlogDAO blogDAO;
 	private BlogMapper blogMapper;
-	
+
 	@Autowired
 	public BlogServiceimpl(BlogDAO blogDAO, BlogMapper blogMapper) {
-		this.blogDAO =blogDAO;
+		this.blogDAO = blogDAO;
 		this.blogMapper = blogMapper;
 	}
-
 
 	@Autowired
 	public BlogServiceimpl(BlogDAO blogDAO) {
 		this.blogDAO = blogDAO;
 	}
-	
 
 	@Override
 	public int create(Map<String, Object> map) {
@@ -38,32 +36,29 @@ public class BlogServiceimpl implements BlogService {
 		return seq;
 	}
 
-
 	@Override
-	public Map<String, Object> read(int blogContSeq){
+	public Map<String, Object> read(int blogContSeq) {
 		Map<String, Object> blogCont = this.blogDAO.selectOne(blogContSeq);
-		
+
 		return blogCont;
 	}
-	
+
 	@Override
-	public boolean edit(BlogEditRequestDTO blogEditRequestDTO){
+	public boolean edit(BlogEditRequestDTO blogEditRequestDTO) {
 		int affectRowsCount = this.blogDAO.update(blogEditRequestDTO);
-		
-		return affectRowsCount> 0 ;
+
+		return affectRowsCount > 0;
 	}
-	
+
 	@Override
 	public boolean delete(int blogContSeq) {
-		return this.blogMapper.delete(blogContSeq)> 0;
+		return this.blogMapper.delete(blogContSeq) > 0;
 	}
-	
-	public List<BlogListResponseDTO> list(BlogListRequestDTO blogListRequestDTO){
+
+	@Override
+	public List<BlogListResponseDTO> list(BlogListRequestDTO blogListRequestDTO) {
 		List<BlogListResponseDTO> result = this.blogMapper.selectList(blogListRequestDTO);
 		return result;
 	}
-	
-	
 
-	
 }
