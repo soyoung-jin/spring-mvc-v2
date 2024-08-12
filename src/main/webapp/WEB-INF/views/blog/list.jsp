@@ -11,7 +11,7 @@
 	<div>
 		<form>
 			<input type="text" name="search" value="${blogListRequestDTO.search}" style="width:50%">
-			<input type="submit" name="search_button" valut="검색">
+			<input type="submit" name="search_button" value="검색">
 		</form>
 	</div>
 	<c:if test ="${not empty blogListResponseDTOList}">
