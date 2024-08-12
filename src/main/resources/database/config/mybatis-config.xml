@@ -9,7 +9,6 @@
  <configuration>
  	<typeAliases>
  	
-		<typeAlias type="v2.mvc.spring.blog.dto.BlogEditRequestDTO" alias="BlogEditRequestDTO"/>
  		
  		
  	</typeAliases>

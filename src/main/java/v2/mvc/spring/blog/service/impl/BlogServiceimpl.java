@@ -25,11 +25,6 @@ public class BlogServiceimpl implements BlogService {
 		this.blogMapper = blogMapper;
 	}
 
-	@Autowired
-	public BlogServiceimpl(BlogDAO blogDAO) {
-		this.blogDAO = blogDAO;
-	}
-
 	@Override
 	public int create(Map<String, Object> map) {
 		int seq = this.blogDAO.insert(map);

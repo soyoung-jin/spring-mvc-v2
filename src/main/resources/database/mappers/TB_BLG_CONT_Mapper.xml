@@ -36,7 +36,7 @@
  	</select>
  	 	
  	
- 	<update id="update" parameterType="BlogEditRequestDTO">
+ 	<update id="update" parameterType="v2.mvc.spring.blog.dto.BlogEditRequestDTO">
  	
  	<![CDATA[
 		 UPDATE

@@ -20,7 +20,7 @@
   	
   	<resultMap type="v2.mvc.spring.blog.dto.BlogListResponseDTO" id="selectListResultMap">
   		<result column="CONT_NUM" property="blgContSeq" jdbcType="INTEGER" javaType="int"></result>
-  		<result column="TITLE" property="title" jdbcType="NVARCHAR2" javaType="String"></result>
+  		<result column="TITLE" property="title" jdbcType="NVARCHAR" javaType="String"></result>
   		<result column="CONT_BDY" property="contBdy" jdbcType="NCLOB" javaType="String"></result>
   		<result column="INSERT_DT" property="insertDt" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"></result>
   	</resultMap>
