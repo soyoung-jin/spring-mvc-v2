@@ -5,15 +5,17 @@ import java.time.format.DateTimeFormatter;
 
 public class BlogListResponseDTO {
 	
-	private int blgContSeq;
+	private int contnum;
 	private String title;
 	private String contBdy;
 	private LocalDateTime insertDt;
-	public int getBlgContSeq() {
-		return blgContSeq;
+	
+	
+	public int getContnum() {
+		return contnum;
 	}
-	public void setBlgContSeq(int blgContSeq) {
-		this.blgContSeq = blgContSeq;
+	public void setContnum(int contnum) {
+		this.contnum = contnum;
 	}
 	public String getTitle() {
 		return title;

@@ -10,8 +10,8 @@
 <body>
 	<div>
 		<form>
-			<input type="text" name="search" value="${blogListRequestDTO.search}" style="width:50%">
-			<input type="submit" name="search_button" value="검색">
+			<input type="text" name="search" value="${blogListRequestDTO.search}" style="width:50%"/>
+			<input type="submit" name="search_button" value="검색"/>
 		</form>
 	</div>
 	<c:if test ="${not empty blogListResponseDTOList}">
@@ -21,16 +21,18 @@
 				<th>글번호</th>
 				<th>제목</th>
 				<th>입력일</th>
+				<th>내용</th>
 				<th>수정</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="blogListResponseDTO" items="${blogListResponseDTOList}">
 			<tr>
-				<td>${blogListResponseDTO.blogContSeq}</td>
+				<td>${blogListResponseDTO.contnum}</td>
 				<td>${blogListResponseDTO.title}</td>
+				<td>${blogListResponseDTO.contBdy}</td>
 				<td>${blogListResponseDTO.insertDtFormat}</td>
-				<td><a href="/edit/${blogListResponseDTO.blgContSeq}">수정</a></td>
+				<td><a href="/edit/${blogListResponseDTO.contnum}">수정</a></td>
 			
 			</tr>
 			</c:forEach>

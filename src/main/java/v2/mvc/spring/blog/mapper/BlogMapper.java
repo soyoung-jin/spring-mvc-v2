@@ -9,7 +9,9 @@ import v2.mvc.spring.blog.dto.BlogListResponseDTO;
 
 @Mapper
 public interface BlogMapper {
+	
 	int delete(int blogContSeq);
+	
 	List<BlogListResponseDTO> selectList(BlogListRequestDTO bloglistRequestDTO);
 
 }
